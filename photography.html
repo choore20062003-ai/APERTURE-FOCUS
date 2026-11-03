@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>APERTURE // Types of Photography Specializations</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* Dark Photographic Theme Tokens */
+    :root {
+      --bg-dark: #0b0f19;
+      --bg-card: rgba(18, 24, 38, 0.85);
+      --bg-card-hover: rgba(26, 35, 54, 0.95);
+      --accent-amber: #f59e0b;
+      --accent-glow: rgba(245, 158, 11, 0.3);
+      --accent-cyan: #06b6d4;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --border-dark: rgba(245, 158, 11, 0.18);
+      --font-heading: 'Space Grotesk', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(245, 158, 11, 0.05) 0%, transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 45%);
+      background-attachment: fixed;
+    }
+
+    h1, h2, h3, h4, .brand-font {
+      font-family: var(--font-heading);
+    }
+
+    .font-mono {
+      font-family: var(--font-mono);
+    }
+
+    /* Custom Glassmorphism */
+    .glass-panel {
+      background: var(--bg-card);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--border-dark);
+      border-radius: 16px;
+    }
+
+    /* Floating Viewfinder Reticle Grid Background */
+    .camera-grid-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.15;
+      background-image: 
+        linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* Viewfinder Corner Accents */
+    .viewfinder-corner {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-color: var(--accent-amber);
+      border-style: solid;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+    .vf-tl { top: 12px; left: 12px; border-width: 2px 0 0 2px; }
+    .vf-tr { top: 12px; right: 12px; border-width: 2px 2px 0 0; }
+    .vf-bl { bottom: 12px; left: 12px; border-width: 0 0 2px 2px; }
+    .vf-br { bottom: 12px; right: 12px; border-width: 0 2px 2px 0; }
+
+    /* Navbar Styling */
+    .photo-nav {
+      background-color: rgba(11, 15, 25, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-dark);
+      z-index: 1030;
+      padding: 0.85rem 0;
+    }
+
+    .navbar-brand {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.35rem;
+      letter-spacing: 1px;
+      color: #fff !important;
+    }
+
+    .brand-icon {
+      color: var(--accent-amber);
+      margin-right: 8px;
+      animation: rotateAperture 20s linear infinite;
+      display: inline-block;
+    }
+
+    @keyframes rotateAperture {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .nav-link {
+      color: var(--text-muted) !important;
+      font-weight: 500;
+      margin: 0 0.4rem;
+      transition: all 0.25s ease;
+      font-size: 0.95rem;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--accent-amber) !important;
+      text-shadow: 0 0 10px var(--accent-glow);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      position: relative;
+      padding: 6rem 0 4.5rem 0;
+      z-index: 1;
+    }
+
+    .eyebrow-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid var(--border-dark);
+      color: var(--accent-amber);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      padding: 0.4rem 1rem;
+      border-radius: 30px;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.12;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #ffffff 0%, var(--accent-amber) 60%, var(--accent-cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-copy {
+      color: var(--text-muted);
+      font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+      max-width: 650px;
+      line-height: 1.65;
+      margin-bottom: 2.2rem;
+    }
+
+    .btn-amber {
+      background: var(--accent-amber);
+      color: #000;
+      font-weight: 700;
+      padding: 0.85rem 1.8rem;
+      border-radius: 10px;
+      border: 1px solid var(--accent-amber);
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      box-shadow: 0 4px 20px var(--accent-glow);
+    }
+
+    .btn-amber:hover {
+      background: transparent;
+      color: var(--accent-amber);
+      box-shadow: 0 0 25px var(--accent-glow);
+    }
+
+    .btn-outline-photo {
+      background: transparent;
+      color: var(--text-main);
+      font-weight: 600;
+      padding: 0.85rem 1.6rem;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-outline-photo:hover {
+      border-color: var(--accent-amber);
+      color: var(--accent-amber);
+      background: rgba(245, 158, 11, 0.05);
+    }
+
+    .stat-box {
+      border-left: 2px solid var(--accent-amber);
+      padding-left: 1.2rem;
+    }
+
+    .stat-num {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #fff;
+      font-family: var(--font-heading);
+    }
+
+    /* Filter & Search Bar Section */
+    .control-panel {
+      padding: 2rem 0 4rem 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .search-input {
+      background: rgba(11, 15, 25, 0.9);
+      border: 1px solid var(--border-dark);
+      color: #fff;
+      padding: 0.75rem 1.25rem;
+      border-radius: 10px;
+      font-size: 0.95rem;
+    }
+
+    .search-input:focus {
+      background: rgba(18, 24, 38, 0.95);
+      border-color: var(--accent-amber);
+      color: #fff;
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    .search-input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .filter-btn {
+      background: rgba(18, 24, 38, 0.8);
+      border: 1px solid var(--border-dark);
+      color: var(--text-muted);
+      padding: 0.5rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--accent-amber);
+      color: #000;
+      border-color: var(--accent-amber);
+      font-weight: 700;
+      box-shadow: 0 0 16px var(--accent-glow);
+    }
+
+    /* Card Layout & Image Styling */
+    .photo-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-dark);
+      border-radius: 16px;
+      overflow: hidden;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+
+    .photo-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 35px var(--accent-glow);
+      border-color: var(--accent-amber);
+    }
+
+    .card-img-wrap {
+      width: 100%;
+      height: 240px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .photo-card:hover .card-img-wrap img {
+      transform: scale(1.08);
+    }
+
+    .tag-category {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(11, 15, 25, 0.9);
+      border: 1px solid var(--accent-amber);
+      color: var(--accent-amber);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.3rem 0.75rem;
+      border-radius: 20px;
+      backdrop-filter: blur(6px);
+    }
+
+    .exif-strip {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(11, 15, 25, 0.88);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 0.4rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent-amber);
+    }
+
+    .card-content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.6rem;
+    }
+
+    .card-desc {
+      color: var(--text-muted);
+      font-size: 0.93rem;
+      line-height: 1.6;
+      flex-grow: 1;
+      margin-bottom: 1.2rem;
+    }
+
+    .key-technique-badge {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-main);
+      font-size: 0.78rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      display: inline-block;
+      margin-right: 0.4rem;
+      margin-bottom: 0.4rem;
+    }
+
+    /* Calculator & Quiz Tool Section */
+    .interactive-section {
+      padding: 5rem 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .calc-card {
+      background: rgba(18, 24, 38, 0.9);
+      border: 1px solid var(--border-dark);
+      border-radius: 20px;
+      padding: 2.5rem;
+    }
+
+    .form-select-dark {
+      background-color: rgba(11, 15, 25, 0.9);
+      border: 1px solid var(--border-dark);
+      color: var(--text-main);
+      border-radius: 8px;
+      padding: 0.7rem 1rem;
+    }
+
+    .form-select-dark:focus {
+      border-color: var(--accent-amber);
+      box-shadow: 0 0 15px var(--accent-glow);
+      color: #fff;
+      background-color: #0b0f19;
+    }
+
+    .setting-result-box {
+      background: rgba(11, 15, 25, 0.95);
+      border: 1px dashed var(--accent-amber);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    /* Custom Modal */
+    .modal-content-dark {
+      background: var(--bg-dark);
+      border: 1px solid var(--accent-amber);
+      color: var(--text-main);
+      border-radius: 20px;
+      box-shadow: 0 0 40px var(--accent-glow);
+    }
+
+    .modal-header-dark {
+      border-bottom: 1px solid var(--border-dark);
+      padding: 1.25rem 1.75rem;
+    }
+
+    .modal-footer-dark {
+      border-top: 1px solid var(--border-dark);
+      padding: 1.25rem 1.75rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #060911;
+      border-top: 1px solid var(--border-dark);
+      padding: 2.5rem 0 1.8rem 0;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: auto;
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Viewfinder Grid Background -->
+  <div class="camera-grid-bg"></div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark photo-nav sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#home">
+        <i class="fa-solid fa-aperture brand-icon"></i>
+        <span>APERTURE<span style="color: var(--accent-amber);">//</span>FOCUS</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#specializations">Specializations</a></li>
+          <li class="nav-item"><a class="nav-link" href="#calculator">Settings Helper</a></li>
+          <li class="nav-item"><a class="nav-link" href="#quiz">Photography Quiz</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section" id="home">
+    <div class="container position-relative">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7">
+          <div class="eyebrow-tag">
+            <i class="fa-solid fa-camera"></i> Field Guide to Photographic Arts
+          </div>
+          <h1 class="hero-title">
+            Capturing Moments.<br><span>Mastering Light.</span>
+          </h1>
+          <p class="hero-copy">
+            Explore the vast dimensions of photography specializations — from fast-action telephoto wildlife tracking to long-exposure night skies and intricate macro details.
+          </p>
+          <div class="d-flex flex-wrap gap-3 align-items-center mb-4">
+            <a href="#specializations" class="btn-amber">
+              <i class="fa-solid fa-compass"></i> Explore Specializations
+            </a>
+            <a href="#calculator" class="btn-outline-photo">
+              <i class="fa-solid fa-sliders"></i> Exposure Helper
+            </a>
+          </div>
+          <div class="row g-4 pt-3 border-top border-secondary border-opacity-25">
+            <div class="col-4">
+              <div class="stat-box">
+                <div class="stat-num">8+</div>
+                <div class="small text-muted font-mono">Specializations</div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="stat-box">
+                <div class="stat-num">100%</div>
+                <div class="small text-muted font-mono">EXIF Settings</div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="stat-box">
+                <div class="stat-num">4K</div>
+                <div class="small text-muted font-mono">Visual Guide</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="glass-panel p-3 position-relative overflow-hidden">
+            <div class="viewfinder-corner vf-tl"></div>
+            <div class="viewfinder-corner vf-tr"></div>
+            <div class="viewfinder-corner vf-bl"></div>
+            <div class="viewfinder-corner vf-br"></div>
+            <div class="card-img-wrap rounded-3" style="height: 380px;">
+              <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1000&q=80" alt="Professional Camera Lens" class="w-100 h-100 style-img">
+              <div class="exif-strip">
+                <span><i class="fa-solid fa-circle-dot text-danger me-1"></i> REC [RAW]</span>
+                <span>85mm | f/1.4 | 1/1000s | ISO 100</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Filterable Specializations Gallery -->
+  <section class="control-panel" id="specializations">
+    <div class="container">
+      <div class="row align-items-end mb-4 g-3">
+        <div class="col-lg-6">
+          <span class="text-warning font-mono text-uppercase small fw-bold tracking-wider">// DISCOVER THE CRAFT</span>
+          <h2 class="display-6 fw-bold text-white mb-0">Photography Specializations</h2>
+        </div>
+        <div class="col-lg-6">
+          <div class="position-relative">
+            <input type="text" id="searchInput" class="form-control search-input ps-4" placeholder="Search by niche, lens (e.g. 85mm), technique, or aperture...">
+          </div>
+        </div>
+      </div>
+
+      <!-- Filter Categories Bar -->
+      <div class="d-flex flex-wrap gap-2 mb-4" id="filterContainer">
+        <button class="filter-btn active" data-filter="all">All Genres</button>
+        <button class="filter-btn" data-filter="outdoor">Outdoor & Nature</button>
+        <button class="filter-btn" data-filter="people">Studio & People</button>
+        <button class="filter-btn" data-filter="urban">Urban & Commercial</button>
+        <button class="filter-btn" data-filter="technical">Technical & Night</button>
+      </div>
+
+      <!-- Photography Grid Container -->
+      <div class="row g-4" id="photographyGrid">
+        <!-- Dynamic Cards Injected via jQuery -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Camera Settings Helper & Quiz Section -->
+  <section class="interactive-section bg-black bg-opacity-40" id="calculator">
+    <div class="container">
+      <div class="row g-5">
+        <!-- Settings Calculator -->
+        <div class="col-lg-6">
+          <div class="calc-card h-100">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <i class="fa-solid fa-sliders text-warning fs-4"></i>
+              <h3 class="h4 text-white mb-0">Recommended Settings Calculator</h3>
+            </div>
+            <p class="text-muted small mb-4">Select your shooting scenario to reveal optimal aperture, shutter speed, and ISO baseline settings.</p>
+
+            <div class="mb-3">
+              <label class="form-label text-light small fw-semibold">Shooting Scenario</label>
+              <select id="scenarioSelect" class="form-select form-select-dark">
+                <option value="portrait">Golden Hour Portrait (Blurry Background)</option>
+                <option value="landscape">Sharp Mountain Landscape (Max Depth)</option>
+                <option value="wildlife">Fast Birds in Flight (Action Freeze)</option>
+                <option value="astro">Milky Way & Starry Night Sky</option>
+                <option value="macro">Insect / Flower Super Close-Up</option>
+                <option value="street">Candid Street Photography (Decisive Moment)</option>
+              </select>
+            </div>
+
+            <div class="setting-result-box mt-4">
+              <div class="row text-center g-3">
+                <div class="col-4">
+                  <span class="text-muted font-mono small d-block">APERTURE</span>
+                  <span id="resAperture" class="text-warning fw-bold fs-5 font-mono">f/1.4 - f/2.8</span>
+                </div>
+                <div class="col-4">
+                  <span class="text-muted font-mono small d-block">SHUTTER</span>
+                  <span id="resShutter" class="text-warning fw-bold fs-5 font-mono">1/500s</span>
+                </div>
+                <div class="col-4">
+                  <span class="text-muted font-mono small d-block">ISO</span>
+                  <span id="resISO" class="text-warning fw-bold fs-5 font-mono">100 - 200</span>
+                </div>
+              </div>
+              <div class="mt-3 pt-3 border-top border-secondary border-opacity-25">
+                <small class="text-light font-mono d-block" id="resTip"><i class="fa-solid fa-lightbulb text-warning me-1"></i> Tip: Use eye AF auto-focus and shoot wide open for dramatic bokeh.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Photography Quiz -->
+        <div class="col-lg-6" id="quiz">
+          <div class="calc-card h-100">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <i class="fa-solid fa-graduation-cap text-warning fs-4"></i>
+              <h3 class="h4 text-white mb-0">Test Your Knowledge</h3>
+            </div>
+            <p class="text-muted small mb-4">Answer photography concept questions to test your understanding of camera mechanics.</p>
+
+            <div id="quizBox">
+              <p class="text-light fw-semibold mb-3" id="quizQuestion">Loading question...</p>
+              <div class="d-grid gap-2" id="quizOptions">
+                <!-- Injected via jQuery -->
+              </div>
+              <div id="quizFeedback" class="mt-3 font-mono small" style="display: none;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Specialization Modal -->
+  <div class="modal fade" id="specModal" tabindex="-1" aria-labelledby="modalSpecTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content modal-content-dark">
+        <div class="modal-header modal-header-dark">
+          <div>
+            <h4 class="modal-title text-white fw-bold mb-0" id="modalSpecTitle">Specialization Title</h4>
+            <span class="badge bg-warning text-dark font-mono mt-1" id="modalSpecCategory">Category</span>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4">
+          <div class="row g-4 align-items-center">
+            <div class="col-md-6">
+              <div class="card-img-wrap rounded-3 border border-secondary border-opacity-50" style="height: 260px;">
+                <img id="modalSpecImg" src="" class="w-100 h-100" style="object-fit: cover;" alt="Specialization Photo">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <h5 class="text-warning font-mono h6 mb-2">// RECOMMENDED GEAR & EXIF</h5>
+              <ul class="list-unstyled text-muted small font-mono mb-3">
+                <li class="mb-1"><strong class="text-light">Recommended Lens:</strong> <span id="modalLens"></span></li>
+                <li class="mb-1"><strong class="text-light">Typical Aperture:</strong> <span id="modalAperture"></span></li>
+                <li class="mb-1"><strong class="text-light">Shutter Speed:</strong> <span id="modalShutter"></span></li>
+                <li class="mb-1"><strong class="text-light">ISO Baseline:</strong> <span id="modalISO"></span></li>
+              </ul>
+              <h5 class="text-warning font-mono h6 mb-2">// OVERVIEW</h5>
+              <p id="modalDescription" class="text-light small mb-0"></p>
+            </div>
+          </div>
+          <div class="mt-4 pt-3 border-top border-secondary border-opacity-25">
+            <h5 class="text-warning font-mono h6 mb-2">// ESSENTIAL TECHNIQUES</h5>
+            <div id="modalTechniques" class="d-flex flex-wrap gap-2"></div>
+          </div>
+        </div>
+        <div class="modal-footer modal-footer-dark">
+          <button type="button" class="btn btn-outline-warning btn-sm font-mono" data-bs-dismiss="modal">Close Guide</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container text-center">
+      <div class="mb-3">
+        <a class="navbar-brand justify-content-center" href="#home">
+          <i class="fa-solid fa-aperture brand-icon"></i>
+          <span>APERTURE<span style="color: var(--accent-amber);">//</span>FOCUS</span>
+        </a>
+      </div>
+      <p class="text-muted small mb-3">"Your first 10,000 photographs are your worst." — Henri Cartier-Bresson</p>
+      <div class="d-flex justify-content-center gap-3 text-muted mb-3 fs-5">
+        <a href="#" class="text-muted"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="text-muted"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#" class="text-muted"><i class="fa-brands fa-unsplash"></i></a>
+      </div>
+      <div class="text-muted font-mono" style="font-size: 0.78rem;">
+        © 2026 APERTURE // FOCUS. Built with HTML5, CSS3, Bootstrap 5 & jQuery.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts: jQuery & Bootstrap 5 Bundle -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Complete Photographic Specializations Data Set
+    const specializationsData = [
+      {
+        id: "portrait",
+        title: "Portrait Photography",
+        category: "people",
+        categoryLabel: "Studio & People",
+        img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=80",
+        shortDesc: "Focuses on capturing the human expression, personality, and emotion using shallow depth-of-field and artistic lighting setups.",
+        lens: "85mm f/1.4 or 50mm f/1.2 Prime",
+        aperture: "f/1.4 - f/2.8",
+        shutter: "1/200s - 1/500s",
+        iso: "100 - 400",
+        techniques: ["Eye Auto-Focus", "Golden Hour Glow", "Softbox Studio Lighting", "Creamy Bokeh"]
+      },
+      {
+        id: "landscape",
+        title: "Landscape & Nature",
+        category: "outdoor",
+        categoryLabel: "Outdoor & Nature",
+        img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80",
+        shortDesc: "Captures majestic outdoor vistas, mountains, and waterscapes. Demands maximum depth of field and optimal light during blue & golden hours.",
+        lens: "16-35mm Ultra Wide Angle",
+        aperture: "f/8.0 - f/11.0",
+        shutter: "1/4s - 30s (with ND Filters)",
+        iso: "64 - 100",
+        techniques: ["Hyperfocal Distance", "Neutral Density Filters", "Tripod Stabilization", "Leading Lines"]
+      },
+      {
+        id: "wildlife",
+        title: "Wildlife & Safari",
+        category: "outdoor",
+        categoryLabel: "Outdoor & Nature",
+        img: "https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=900&q=80",
+        shortDesc: "Tracking evasive animals in their natural habitats requires extreme focal lengths, lightning-fast shutter speeds, and infinite patience.",
+        lens: "400mm - 600mm Telephoto Prime",
+        aperture: "f/2.8 - f/4.0",
+        shutter: "1/2000s - 1/4000s",
+        iso: "400 - 3200",
+        techniques: ["Burst Mode Shooting", "Animal Eye Tracking", "Gimbal Head Support", "Camouflage & Camber"]
+      },
+      {
+        id: "street",
+        title: "Street & Documentary",
+        category: "urban",
+        categoryLabel: "Urban & Commercial",
+        img: "https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&w=900&q=80",
+        shortDesc: "Candid, unposed storytelling in public spaces. Captures authentic daily human life, urban shadows, and decisive fleeting moments.",
+        lens: "35mm f/1.8 or 28mm Compact",
+        aperture: "f/5.6 - f/8.0",
+        shutter: "1/250s - 1/500s",
+        iso: "200 - 800",
+        techniques: ["Zone Focusing", "The Decisive Moment", "High Contrast B&W", "Discreet Shooting"]
+      },
+      {
+        id: "architecture",
+        title: "Architectural & Interior",
+        category: "urban",
+        categoryLabel: "Urban & Commercial",
+        img: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=900&q=80",
+        shortDesc: "Emphasizes geometric symmetry, lines, and structural aesthetics. Eliminates perspective distortion for crisp commercial presentation.",
+        lens: "24mm Tilt-Shift Lens",
+        aperture: "f/8.0 - f/13.0",
+        shutter: "1/2s - 4s",
+        iso: "100",
+        techniques: ["Perspective Correction", "Bracketing HDR", "Blue Hour Blending", "Symmetry Alignment"]
+      },
+      {
+        id: "astro",
+        title: "Astrophotography",
+        category: "technical",
+        categoryLabel: "Technical & Night",
+        img: "https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?auto=format&fit=crop&w=900&q=80",
+        shortDesc: "Unveils deep space nebula, star trails, and the Milky Way core by gathering photons over long exposures in dark sky areas.",
+        lens: "14mm - 24mm f/1.4 - f/2.8",
+        aperture: "f/1.4 - f/2.8",
+        shutter: "15s - 25s (500 Rule)",
+        iso: "3200 - 6400",
+        techniques: ["500 Rule Calculation", "Star Tracker Mount", "Image Stacking Noise Reduction", "Dark Frame Subtraction"]
+      },
+      {
+        id: "macro",
+        title: "Macro & Close-Up",
+        category: "technical",
+        categoryLabel: "Technical & Night",
+        img: "https://images.unsplash.com/photo-1535083783855-76ae62b2914e?auto=format&fit=crop&w=900&q=80",
+        shortDesc: "Reveals miniature worlds at 1:1 or greater life-size magnification, highlighting unseen textures of insects, water droplets, and crystals.",
+        lens: "105mm f/2.8 Macro Lens",
+        aperture: "f/11 - f/16",
+        shutter: "1/160s (with Flash)",
+        iso: "100 - 400",
+        techniques: ["Focus Stacking", "Ring Flash / Diffuser", "Macro Rail Slider", "Manual Focus Peaking"]
+      },
+      {
+        id: "fashion",
+        title: "Fashion & Editorial",
+        category: "people",
+        categoryLabel: "Studio & People",
+        img: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=900&q=80",
+        shortDesc: "Blends creative art direction, high-end styling, and dramatic studio strobes to highlight garments, accessories, and haute couture.",
+        lens: "24-70mm f/2.8 Pro Zoom",
+        aperture: "f/4.0 - f/8.0",
+        shutter: "1/160s - 1/200s (Sync Speed)",
+        iso: "100",
+        techniques: ["High-Key Studio Strobes", "Beauty Dish Light", "Model Posing Direction", "Color Grading"]
+      }
+    ];
+
+    // Scenario Calculator Data
+    const scenarioData = {
+      portrait: {
+        aperture: "f/1.4 - f/2.8",
+        shutter: "1/500s",
+        iso: "100 - 200",
+        tip: "Use Eye Auto-Focus and select a wide aperture for background blur (bokeh)."
+      },
+      landscape: {
+        aperture: "f/8.0 - f/11.0",
+        shutter: "1/30s - 1/4s",
+        iso: "64 - 100",
+        tip: "Mount your camera on a sturdy tripod and use a remote shutter release."
+      },
+      wildlife: {
+        aperture: "f/2.8 - f/4.0",
+        shutter: "1/2000s+",
+        iso: "400 - 1600",
+        tip: "Enable Continuous Servo AF (AF-C) and high-speed burst mode."
+      },
+      astro: {
+        aperture: "f/1.4 - f/2.8",
+        shutter: "15s - 20s",
+        iso: "3200 - 6400",
+        tip: "Use manual focus set precisely to infinity using Live View zoom on a bright star."
+      },
+      macro: {
+        aperture: "f/11.0 - f/16.0",
+        shutter: "1/160s",
+        iso: "100 - 400",
+        tip: "Use a dual macro flash with diffusers to compensate for small aperture light loss."
+      },
+      street: {
+        aperture: "f/5.6 - f/8.0",
+        shutter: "1/320s",
+        iso: "400 - 800",
+        tip: "Pre-focus using zone focusing so you can trigger the shutter instantly."
+      }
+    };
+
+    // Quiz Questions Dataset
+    const quizQuestions = [
+      {
+        question: "Which camera setting directly controls the depth of field (background blur)?",
+        options: ["Shutter Speed", "Aperture (f-stop)", "ISO Sensitivity", "White Balance"],
+        correct: 1,
+        explanation: "Correct! A lower f-stop number (e.g., f/1.4) creates a wider lens opening and shallower depth of field."
+      },
+      {
+        question: "What shutter speed is best for freezing extremely fast action like flying birds?",
+        options: ["1/30s", "1/125s", "1/2000s", "2 seconds"],
+        correct: 2,
+        explanation: "Correct! 1/2000s or faster freezes high-speed motion without motion blur."
+      },
+      {
+        question: "What is the primary drawback of increasing ISO to very high levels (e.g. ISO 12,800)?",
+        options: ["Overexposed highlights", "Increased digital noise/grain", "Out of focus images", "Narrower view"],
+        correct: 1,
+        explanation: "Correct! Higher ISO amplifies light signals but introduces digital noise and grain into the image."
+      }
+    ];
+
+    let currentQuizIndex = 0;
+
+    $(document).ready(function() {
+      // Initial Render of Cards
+      renderGrid(specializationsData);
+
+      // Smooth Navigation
+      $('a[href^="#"]').on('click', function(e) {
+        e.preventDefault();
+        const target = $(this.getAttribute('href'));
+        if (target.length) {
+          $('html, body').stop().animate({
+            scrollTop: target.offset().top - 70
+          }, 500);
+        }
+        if ($('.navbar-collapse').hasClass('show')) {
+          $('.navbar-toggler').click();
+        }
+      });
+
+      // Filter Button Handler
+      $('.filter-btn').on('click', function() {
+        $('.filter-btn').removeClass('active');
+        $(this).addClass('active');
+
+        const filter = $(this).data('filter');
+        const query = $('#searchInput').val().toLowerCase().trim();
+        applyFilterAndSearch(filter, query);
+      });
+
+      // Live Search Handler
+      $('#searchInput').on('keyup input', function() {
+        const query = $(this).val().toLowerCase().trim();
+        const activeFilter = $('.filter-btn.active').data('filter');
+        applyFilterAndSearch(activeFilter, query);
+      });
+
+      // Scenario Calculator Handler
+      $('#scenarioSelect').on('change', function() {
+        const key = $(this).val();
+        const data = scenarioData[key];
+        if (data) {
+          $('#resAperture').text(data.aperture);
+          $('#resShutter').text(data.shutter);
+          $('#resISO').text(data.iso);
+          $('#resTip').html(`<i class="fa-solid fa-lightbulb text-warning me-1"></i> Tip: ${data.tip}`);
+        }
+      });
+
+      // Render Initial Quiz Question
+      renderQuizQuestion();
+
+      // Modal Details View Handler
+      $(document).on('click', '.open-modal', function(e) {
+        e.preventDefault();
+        const id = $(this).data('id');
+        const spec = specializationsData.find(item => item.id === id);
+
+        if (spec) {
+          $('#modalSpecTitle').text(spec.title);
+          $('#modalSpecCategory').text(spec.categoryLabel);
+          $('#modalSpecImg').attr('src', spec.img);
+          $('#modalLens').text(spec.lens);
+          $('#modalAperture').text(spec.aperture);
+          $('#modalShutter').text(spec.shutter);
+          $('#modalISO').text(spec.iso);
+          $('#modalDescription').text(spec.shortDesc);
+
+          const techContainer = $('#modalTechniques').empty();
+          spec.techniques.forEach(t => {
+            techContainer.append(`<span class="key-technique-badge font-mono"><i class="fa-solid fa-check text-warning me-1"></i>${t}</span>`);
+          });
+
+          const modal = new bootstrap.Modal(document.getElementById('specModal'));
+          modal.show();
+        }
+      });
+    });
+
+    // Render Specializations Cards into Responsive Grid
+    function renderGrid(list) {
+      const grid = $('#photographyGrid').empty();
+
+      if (list.length === 0) {
+        grid.append(`
+          <div class="col-12 text-center py-5">
+            <i class="fa-solid fa-camera-retro fa-3x text-warning mb-3"></i>
+            <h4 class="text-white">No specializations match your query</h4>
+            <p class="text-muted">Try clearing your search term or choosing a different genre filter.</p>
+          </div>
+        `);
+        return;
+      }
+
+      list.forEach(spec => {
+        const cardHtml = `
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="photo-card">
+              <div class="card-img-wrap">
+                <img src="${spec.img}" alt="${spec.title}">
+                <span class="tag-category">${spec.categoryLabel}</span>
+                <div class="exif-strip">
+                  <span>${spec.aperture}</span>
+                  <span>${spec.shutter}</span>
+                  <span>ISO ${spec.iso}</span>
+                </div>
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">${spec.title}</h3>
+                <p class="card-desc">${spec.shortDesc}</p>
+                <div class="mb-3">
+                  ${spec.techniques.slice(0, 2).map(t => `<span class="key-technique-badge">${t}</span>`).join('')}
+                </div>
+                <div class="mt-auto pt-3 border-top border-secondary border-opacity-25 d-flex justify-content-between align-items-center">
+                  <small class="text-warning font-mono">${spec.lens}</small>
+                  <a href="#" class="btn-amber btn-sm open-modal" data-id="${spec.id}" style="padding: 0.4rem 0.9rem; font-size: 0.82rem;">Details →</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        `;
+        grid.append(cardHtml);
+      });
+    }
+
+    // Filter and Search Handler
+    function applyFilterAndSearch(filter, query) {
+      const filtered = specializationsData.filter(item => {
+        const matchesCategory = (filter === 'all') || (item.category === filter);
+        const matchesSearch = item.title.toLowerCase().includes(query) ||
+                              item.shortDesc.toLowerCase().includes(query) ||
+                              item.lens.toLowerCase().includes(query) ||
+                              item.aperture.toLowerCase().includes(query) ||
+                              item.techniques.some(t => t.toLowerCase().includes(query));
+        return matchesCategory && matchesSearch;
+      });
+
+      renderGrid(filtered);
+    }
+
+    // Quiz Question Renderer
+    function renderQuizQuestion() {
+      const q = quizQuestions[currentQuizIndex];
+      $('#quizQuestion').text(`Q${currentQuizIndex + 1}: ${q.question}`);
+      const optsContainer = $('#quizOptions').empty();
+      $('#quizFeedback').hide();
+
+      q.options.forEach((opt, idx) => {
+        optsContainer.append(`
+          <button class="btn btn-outline-warning text-start font-mono quiz-opt-btn" data-idx="${idx}">${String.fromCharCode(65 + idx)}. ${opt}</button>
+        `);
+      });
+
+      $('.quiz-opt-btn').off('click').on('click', function() {
+        const chosen = $(this).data('idx');
+        const feedback = $('#quizFeedback');
+        
+        if (chosen === q.correct) {
+          feedback.removeClass('text-danger').addClass('text-success').html(`<i class="fa-solid fa-circle-check me-1"></i> ${q.explanation}`).show();
+        } else {
+          feedback.removeClass('text-success').addClass('text-danger').html(`<i class="fa-solid fa-circle-xmark me-1"></i> Incorrect. Try again!`).show();
+        }
+
+        setTimeout(() => {
+          currentQuizIndex = (currentQuizIndex + 1) % quizQuestions.length;
+          renderQuizQuestion();
+        }, 2800);
+      });
+    }
+  </script>
+</body>
+</html>
